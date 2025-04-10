@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gateway de Pagamento - Imersão Full Cycle
 
-## Getting Started
+## Sobre o Projeto
 
-First, run the development server:
+Este projeto foi desenvolvido durante a [Imersão Full Stack & Full Cycle](https://imersao.fullcycle.com.br/evento/), onde construímos um Gateway de Pagamento completo utilizando arquitetura de microsserviços.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O objetivo é demonstrar a construção de um sistema distribuído moderno, com separação de responsabilidades, comunicação assíncrona e análise de fraudes em tempo real.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Arquitetura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[Visualize a arquitetura completa aqui](https://link.excalidraw.com/readonly/Nrz6WjyTrn7IY8ZkrZHy)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Componentes do Sistema
 
-## Learn More
+- **Frontend (Next.js)**
 
-To learn more about Next.js, take a look at the following resources:
+  - Interface do usuário para gerenciamento de contas e processamento de pagamentos
+  - Desenvolvido com Next.js para garantir performance e boa experiência do usuário
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Gateway (Go)**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  - Sistema principal de processamento de pagamentos
+  - Gerencia contas, transações e coordena o fluxo de pagamentos
+  - Publica eventos de transação no Kafka para análise de fraude
 
-## Deploy on Vercel
+- **Apache Kafka**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - Responsável pela comunicação assíncrona entre API Gateway e Antifraude
+  - Garante confiabilidade na troca de mensagens entre os serviços
+  - Tópicos específicos para transações e resultados de análise
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Antifraude (Nest.js)**
+  - Consome eventos de transação do Kafka
+  - Realiza análise em tempo real para identificar possíveis fraudes
+  - Publica resultados da análise de volta no Kafka
+
+## Fluxo de Comunicação
+
+1. Frontend realiza requisições para a API Gateway via REST
+2. Gateway processa as requisições e publica eventos de transação no Kafka
+3. Serviço Antifraude consome os eventos e realiza análise em tempo real
+4. Resultados das análises são publicados de volta no Kafka
+5. Gateway consome os resultados e finaliza o processamento da transação
