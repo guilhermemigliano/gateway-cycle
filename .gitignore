@@ -40,3 +40,62 @@ frontend/.vercel
 # typescript
 frontend/*.tsbuildinfo
 frontend/next-env.d.ts
+
+#NESTJS-ANTI-FRAUDE
+
+# compiled output
+nestjs-anti-fraude/dist
+nestjs-anti-fraude/node_modules
+nestjs-anti-fraude/build
+
+# Logs
+nestjs-anti-fraude/logs
+nestjs-anti-fraude/*.log
+nestjs-anti-fraude/npm-debug.log*
+nestjs-anti-fraude/pnpm-debug.log*
+nestjs-anti-fraude/yarn-debug.log*
+nestjs-anti-fraude/yarn-error.log*
+nestjs-anti-fraude/lerna-debug.log*
+
+# OS
+nestjs-anti-fraude/.DS_Store
+
+# Tests
+nestjs-anti-fraude/coverage
+nestjs-anti-fraude/.nyc_output
+
+# IDEs and editors
+nestjs-anti-fraude/.idea
+nestjs-anti-fraude/.project
+nestjs-anti-fraude/.classpath
+nestjs-anti-fraude/.c9/
+nestjs-anti-fraude/*.launch
+nestjs-anti-fraude/.settings/
+nestjs-anti-fraude/*.sublime-workspace
+
+# IDE - VSCode
+nestjs-anti-fraude/.vscode/*
+nestjs-anti-fraude/!.vscode/settings.json
+nestjs-anti-fraude/!.vscode/tasks.json
+nestjs-anti-fraude/!.vscode/launch.json
+nestjs-anti-fraude/!.vscode/extensions.json
+
+# dotenv environment variable files
+nestjs-anti-fraude/.env 
+nestjs-anti-fraude/.env.development.local
+nestjs-anti-fraude/.env.test.local
+nestjs-anti-fraude/.env.production.local
+nestjs-anti-fraude/.env.local
+
+# temp directory
+nestjs-anti-fraude/.temp
+nestjs-anti-fraude/.tmp
+
+# Runtime data
+nestjs-anti-fraude/pids
+nestjs-anti-fraude/*.pid
+nestjs-anti-fraude/*.seed
+nestjs-anti-fraude/*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+nestjs-anti-fraude/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
