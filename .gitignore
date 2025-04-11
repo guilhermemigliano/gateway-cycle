@@ -81,11 +81,11 @@ nestjs-anti-fraude/!.vscode/launch.json
 nestjs-anti-fraude/!.vscode/extensions.json
 
 # dotenv environment variable files
-nestjs-anti-fraude/.env 
-nestjs-anti-fraude/.env.development.local
-nestjs-anti-fraude/.env.test.local
-nestjs-anti-fraude/.env.production.local
-nestjs-anti-fraude/.env.local
+#nestjs-anti-fraude/.env 
+#nestjs-anti-fraude/.env.development.local
+#nestjs-anti-fraude/.env.test.local
+#nestjs-anti-fraude/.env.production.local
+#nestjs-anti-fraude/.env.local
 
 # temp directory
 nestjs-anti-fraude/.temp
